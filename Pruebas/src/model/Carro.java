@@ -6,10 +6,13 @@ public class Carro {
     private String color;
     private int numAsientos;
 
-    public Carro(String marca, String color, int numAsientos) {
+    private double valor;
+
+    public Carro(String marca, String color, int numAsientos, double valor) {
         this.marca = marca;
         this.color = color;
         this.numAsientos = numAsientos;
+        this.valor = valor;
     }
 
     public String getMarca() {
@@ -34,5 +37,13 @@ public class Carro {
 
     public void setNumAsientos(int numAsientos) {
         this.numAsientos = numAsientos;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 }
