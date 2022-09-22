@@ -1,3 +1,5 @@
+package main;
+
 import model.Person;
 
 import java.io.File;
