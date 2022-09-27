@@ -1,3 +1,4 @@
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class Main {
@@ -37,6 +38,7 @@ public class Main {
     }
 
     private static void sortStringArrayBubble(ArrayList<String> array) {
+        long startTime = System.nanoTime();
         for (int i = 0; i < array.size(); i++) {
             for (int j = 1; j < array.size()-i; j++) {
                 if(array.get(j).compareTo(array.get(j-1))<0){
@@ -50,26 +52,29 @@ public class Main {
             }
 
         }
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime)/1000;
+        System.out.println(duration);
         System.out.println(array);
     }
 
-    private static void sortIntegerArraySelection(ArrayList<Integer> array){
-        for(int rojo = 0 ; rojo < array.size()-1 ; rojo++) {
-            for (int azul = rojo+1; azul < array.size(); azul++) {
-                if(array.get(rojo) > array.get(azul)){
+    private static void sortIntegerArrayBubble(ArrayList<Integer> array){
+        for(int i = 0 ; i < array.size() ; i++) {
+            for (int j = 1; j < array.size()-i; j++) {
+                if(array.get(j) < array.get(j-1)){
                     // get values to swap
-                    int valorRojo = array.get(rojo);
-                    int valorAzul = array.get(azul);
+                    int anterior = array.get(j-1);
+                    int actual = array.get(j);
                     // swap
-                    array.set(rojo, valorAzul);
-                    array.set(azul, valorRojo);
+                    array.set(j,anterior);
+                    array.set(j-1,actual);
                 }
             }
         }
         System.out.println(array);
     }
 
-    private static void sortIntegerArrayBubble(ArrayList<Integer> array){
+    private static void sortIntegerArraySelection(ArrayList<Integer> array){
         for(int rojo = 0 ; rojo < array.size()-1 ; rojo++) {
             for (int azul = rojo+1; azul < array.size(); azul++) {
                 if(array.get(rojo) > array.get(azul)){
