@@ -1,5 +1,7 @@
 package main;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 
 public class Main {
@@ -43,6 +45,11 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        // JFileChooser
+
+        Chooser chooser = new Chooser();
 
 
     }
