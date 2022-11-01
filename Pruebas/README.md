@@ -9,3 +9,6 @@
    - Cuando se elimime un carro, el número total de carros debe disminuir
    - Cuando se agrege un carro, el número total de carros debe aumentar
    - Cuando se eliminen todos los carros, teniendo previamente por lo menos un carro, el número total de carros debe ser cero
+   
+   
+Using fail() assertion example: https://www.baeldung.com/junit-fail
