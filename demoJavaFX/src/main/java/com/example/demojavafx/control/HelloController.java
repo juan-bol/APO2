@@ -16,15 +16,16 @@ public class HelloController {
     @FXML
     private CheckBox check;
 
-    public HelloController (){
-        System.out.println("Hello from Controller");
+    @FXML
+    protected void loginClick() {
+        HelloApplication.showWindow("login");
+        HelloApplication.hideWindow((Stage) welcomeText.getScene().getWindow());
     }
 
     @FXML
-    protected void loginClick() {
-        HelloApplication.showWindow("login.fxml");
-        Stage stage = (Stage) welcomeText.getScene().getWindow();
-        stage.close();
+    protected void siginClick(){
+        HelloApplication.showWindow("signin");
+        HelloApplication.hideWindow((Stage) welcomeText.getScene().getWindow());
     }
 
     @FXML

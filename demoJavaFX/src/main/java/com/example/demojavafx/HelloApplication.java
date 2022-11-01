@@ -23,7 +23,7 @@ public class HelloApplication extends Application {
     }
 
     public static void showWindow(String fxml) {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml+".fxml"));
         try {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
@@ -32,6 +32,10 @@ public class HelloApplication extends Application {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void hideWindow(Stage stage){
+        stage.close();
     }
 
 

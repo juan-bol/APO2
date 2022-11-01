@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 
-public class LoginController {
+public class SigninController {
 
     @FXML
     private TextField userTF;
@@ -19,23 +19,29 @@ public class LoginController {
     private PasswordField passPF;
 
     @FXML
-    public void loginClick(){
+    private PasswordField passPFRepeat;
+
+
+    @FXML
+    public void signinClick(){
         String user = userTF.getText();
         String pass = passPF.getText();
-        if (user.equals(User.getInstance().getUsername()) && pass.equals(User.getInstance().getPassword())){
-            int res = JOptionPane.showOptionDialog(null, "El usuario "+ user+" ha iniciado sesión", "Sign In", JOptionPane.DEFAULT_OPTION,
+        if (!user.isBlank() && pass.equals(passPFRepeat.getText())){
+            User.getInstance().setUsername(user);
+            User.getInstance().setPassword(pass);
+            User.getInstance().setNote("Agrega tus notas...");
+            int res = JOptionPane.showOptionDialog(null, "Registro completo del usuario "+ user, "Sign In", JOptionPane.DEFAULT_OPTION,
                     JOptionPane.INFORMATION_MESSAGE, null, null, null);
             if(res==0){
-                HelloApplication.showWindow("note");
+                HelloApplication.showWindow("hello-view");
                 HelloApplication.hideWindow((Stage) userTF.getScene().getWindow());
             }
-
         }
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Error in Login");
-            alert.setContentText("User not found");
+            alert.setHeaderText("Sign in error");
+            alert.setContentText("Las contraseñas deben coincidir");
             alert.show();
         }
     }

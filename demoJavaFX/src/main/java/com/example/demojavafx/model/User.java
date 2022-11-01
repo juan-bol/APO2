@@ -2,12 +2,18 @@ package com.example.demojavafx.model;
 
 public class User {
 
+    // Singleton user
+    static private User user = new User();
     private String username;
     private String password;
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
+    private String note;
+
+    private User() {
+    }
+
+    static public User getInstance(){
+        return user;
     }
 
     public String getUsername() {
@@ -24,5 +30,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }
