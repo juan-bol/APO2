@@ -1,6 +1,6 @@
 package com.example.threads;
 
-public class Main {
+public class MainHilo {
 
     public static void tarea(String nombreTarea){
         try {

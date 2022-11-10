@@ -14,18 +14,16 @@ public class HelloController {
 
     @FXML
     public void iniciar(){
-        Thread hilo1 = new Thread(){
-            public void run(){
-                for (double i = 0; i < 1; i+=0.1) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                    progressIndicator.setProgress(i);
+        Thread hilo1 = new Thread(() -> {
+            for (double i = 0; i < 1; i+=0.1) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
+                progressIndicator.setProgress(i);
             }
-        };
+        });
         hilo1.setDaemon(true);
         hilo1.start();
 
